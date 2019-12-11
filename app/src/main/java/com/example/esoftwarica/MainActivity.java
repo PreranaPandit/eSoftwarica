@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         //creating a list of students to display in recycler view
 
         List<Students> studentsList = new ArrayList<>();
-        studentsList.add(new Students("Prerana Pandit",23,"Bhotebahal","Female",R.drawable.female,R.drawable.delete));
-        studentsList.add(new Students("Ram Prajapati",25,"Kalanki","Male",R.drawable.male,R.drawable.delete));
-        studentsList.add(new Students("Swaraj Giri",28,"Dillibazar","Others",R.drawable.others,R.drawable.delete));
+        studentsList.add(new Students("Martin Loius",23,"Pokhara","Male",R.drawable.man,R.drawable.delete));
+        studentsList.add(new Students("Tim John",25,"Biratnagar","Female",R.drawable.female,R.drawable.delete));
+        studentsList.add(new Students("Charley Crooke",28,"Rajbiraj","Others",R.drawable.others,R.drawable.delete));
 
-        StudentsAdpater studentsAdpater = new StudentsAdpater(this, studentsList);
-        recyclerView.setAdapter(studentsAdpater);
+        StudentsAdapter studentsAdapter = new StudentsAdapter(this, studentsList);
+        recyclerView.setAdapter(studentsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }

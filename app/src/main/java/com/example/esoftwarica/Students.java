@@ -6,21 +6,20 @@ public class Students {
     private int age;
     private String address;
     private String gender;
-    private int imageGender;
-    private int imageDelete;
+    private int imgProfile;
+    private int imgBtnDel;
 
-    //Constructor
-    public Students(String name, int age, String address, String gender, int imageGender, int imageDelete) {
+    //constructor
+    public Students(String name, int age, String address, String gender, int imgProfile, int imgBtnDel) {
         this.name = name;
         this.age = age;
         this.address = address;
         this.gender = gender;
-        this.imageGender = imageGender;
-        this.imageDelete = imageDelete;
+        this.imgProfile = imgProfile;
+        this.imgBtnDel = imgBtnDel;
     }
 
-    //Getter and setter
-
+    //getter and setter
 
     public String getName() {
         return name;
@@ -54,21 +53,19 @@ public class Students {
         this.gender = gender;
     }
 
-    public int getImageGender() {
-        return imageGender;
+    public int getImgProfile() {
+        return imgProfile;
     }
 
-    public void setImageGender(int imageGender) {
-        this.imageGender = imageGender;
+    public void setImgProfile(int imgProfile) {
+        this.imgProfile = imgProfile;
     }
 
-    public int getImageDelete() {
-        return imageDelete;
+    public int getImgBtnDel() {
+        return imgBtnDel;
     }
 
-    public void setImageDelete(int imageDelete) {
-        this.imageDelete = imageDelete;
+    public void setImgBtnDel(int imgBtnDel) {
+        this.imgBtnDel = imgBtnDel;
     }
-
-    
 }
