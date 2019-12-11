@@ -36,15 +36,29 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StudentsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull StudentsViewHolder holder, final int position) {
 
-        Students students = studentsList.get(position);
+        final Students students = studentsList.get(position);
         holder.imgProfile.setImageResource(students.getImgProfile());
         holder.tvName.setText(students.getName());
         holder.tvAge.setText(String.valueOf(students.getAge()));
         holder.tvAddress.setText(students.getAddress());
         holder.tvGender.setText(students.getGender());
         holder.imgBtnDel.setImageResource(students.getImgBtnDel());
+
+        holder.imgBtnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Students removedItems = studentsList.get(position);
+
+                //removes item from the list
+                studentsList.remove(position);
+                //notify adapter about removal of item
+                notifyItemRemoved(position);
+
+            }
+        });
 
     }
 
