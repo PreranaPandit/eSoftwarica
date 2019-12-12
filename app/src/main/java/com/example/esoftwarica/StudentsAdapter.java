@@ -22,8 +22,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     //constructor, to receive data from activity
 
 
-    public StudentsAdapter(Context mContext, List<Students> studentsList) {
-        this.mContext = mContext;
+    public StudentsAdapter(List<Students> studentsList) {
+        //this.mContext = mContext;
         this.studentsList = studentsList;
     }
 
@@ -56,7 +56,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
                 studentsList.remove(position);
                 //notify adapter about removal of item
                 notifyItemRemoved(position);
-
             }
         });
 
