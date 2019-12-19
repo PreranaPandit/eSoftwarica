@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.esoftwarica.NavActivity;
 import com.example.esoftwarica.R;
 import com.example.esoftwarica.Students;
 import com.example.esoftwarica.StudentsAdapter;
@@ -24,8 +25,8 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-
     private RecyclerView recyclerView;
+    List<Students> students = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,15 +44,23 @@ public class HomeFragment extends Fragment {
         recyclerView = root.findViewById(R.id.recyclerView);
 
         //creating a list of students to display in recycler view
+        if(NavActivity.students.isEmpty()) {
+            NavActivity.students.add(new Students("Prerana Pandit", 22, "Bhotebahal", "Female"));
+            NavActivity.students.add(new Students("John Dengard", 20, "Lumbini", "Male"));
+            NavActivity.students.add(new Students("James Rian", 2, "Chitwan", "Others"));
 
-        List<Students> studentsList = new ArrayList<>();
-        studentsList.add(new Students("Martin Loius",23,"Pokhara","Male",R.drawable.man,R.drawable.delete));
-        studentsList.add(new Students("Tim John",25,"Biratnagar","Female",R.drawable.female,R.drawable.delete));
-        studentsList.add(new Students("Charley Crooke",28,"Rajbiraj","Others",R.drawable.others,R.drawable.delete));
+            StudentsAdapter adapter = new StudentsAdapter(getContext(), NavActivity.students);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setAdapter(adapter);
+        }else {
 
-        StudentsAdapter studentsAdapter = new StudentsAdapter(studentsList);
-        recyclerView.setAdapter(studentsAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            StudentsAdapter adapter2 = new StudentsAdapter(getContext(), NavActivity.students);
+
+            RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(this.getContext());
+            recyclerView.setLayoutManager(layoutManager2);
+            recyclerView.setAdapter(adapter2);
+        }
         return root;
     }
 }

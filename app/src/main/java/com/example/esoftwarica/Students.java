@@ -6,17 +6,13 @@ public class Students {
     private int age;
     private String address;
     private String gender;
-    private int imgProfile;
-    private int imgBtnDel;
 
     //constructor
-    public Students(String name, int age, String address, String gender, int imgProfile, int imgBtnDel) {
+    public Students(String name, int age, String address, String gender) {
         this.name = name;
         this.age = age;
         this.address = address;
         this.gender = gender;
-        this.imgProfile = imgProfile;
-        this.imgBtnDel = imgBtnDel;
     }
 
     //getter and setter
@@ -53,19 +49,4 @@ public class Students {
         this.gender = gender;
     }
 
-    public int getImgProfile() {
-        return imgProfile;
-    }
-
-    public void setImgProfile(int imgProfile) {
-        this.imgProfile = imgProfile;
-    }
-
-    public int getImgBtnDel() {
-        return imgBtnDel;
-    }
-
-    public void setImgBtnDel(int imgBtnDel) {
-        this.imgBtnDel = imgBtnDel;
-    }
-}
+   }
